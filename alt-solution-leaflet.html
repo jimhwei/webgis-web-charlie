@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Leaflet Map with a Basemap</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+
+    <!-- lets load Leaflet's .js and .css from CDN-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <!-- Load Esri Leaflet from CDN.  it has no .css stylesheet of its own, only .js -->
+    <script
+      src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js"
+      integrity="sha512-JmpptMCcCg+Rd6x0Dbg6w+mmyzs1M7chHCd9W8HPovnImG2nLAQWn3yltwxXRM7WjKKFFHOAKjjF2SC4CgiFBg=="
+      crossorigin=""
+    ></script>
+
+    <!-- Create container for map -->
+    <style>
+      html,
+      body,
+      #map-leaf {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Back to Main Page</p>
+    <div id="map-leaf"></div>
+
+    <!-- Construct Map Object -->
+    <script>
+      var map = L.map("map-leaf", {
+        center: [44.1, -78.0],
+        zoom: 10,
+      });
+
+      // Load Esri's World Streetmap tiles (adding a basemap from ArcGIS Online)
+      // Add feature layer from ArcGIS REST Endpoint Food_Banks URL!
+      // L.esri.basemapLayer('NationalGeographic').addTo(map);
+      L.tileLayer(
+        "https://api.mapbox.com/styles/v1/howe2020/cknu779uo0a9z17nuj6835vv0/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaG93ZTIwMjAiLCJhIjoiY2ttanBjZ2RlMHQ1eTJwdDQ4OWM4eGR1NSJ9.b9kOhElyIEpC-NrGji73Fw",
+        {
+          foo: "bar",
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }
+      ).addTo(map);
+
+      var foodbanks = L.esri
+        .featureLayer({
+          url:
+            "https://services3.arcgis.com/KJrsq5lsoZHRcF4w/ArcGIS/rest/services/Food_Banks/FeatureServer/0",
+
+          pointToLayer: function (geojson, latlng) {
+            return L.marker(latlng, {
+              icon: icon1,
+            });
+          },
+        })
+        .addTo(map);
+
+      var farmerMarket = L.esri
+        .featureLayer({
+          url:
+            "https://services3.arcgis.com/KJrsq5lsoZHRcF4w/ArcGIS/rest/services/Farmers_Markets/FeatureServer/0",
+          pointToLayer: function (geojson, latlng) {
+            return L.marker(latlng, {
+              icon: icon2,
+            });
+          },
+        })
+        .addTo(map);
+
+      var icon1 = L.icon({
+        iconUrl: "images/redMarker.png",
+        iconSize: [32, 40],
+        iconAnchor: [13.5, 17.5],
+        popupAnchor: [0, -11],
+      });
+
+      var icon2 = L.icon({
+        iconUrl: "images/blueMarker.png",
+        iconSize: [32, 40],
+        iconAnchor: [13.5, 17.5],
+        popupAnchor: [0, -11],
+      });
+
+      foodbanks.bindPopup(function (layer) {
+        return L.Util.template(
+          "<b>Address: </b>" +
+            layer.feature.properties.Address +
+            "<br>" +
+            "<b>City: </b>" +
+            layer.feature.properties.City +
+            "<br>" +
+            "<b>Phone: </b>" +
+            layer.feature.properties.Phone +
+            "<br>" +
+            "<b>Description: </b>" +
+            layer.feature.properties.Description
+        );
+      });
+
+      farmerMarket.bindPopup(function (layer) {
+        return L.Util.template(
+          "<b>Address: </b>" +
+            layer.feature.properties.Address +
+            "<br>" +
+            "<b>City: </b>" +
+            layer.feature.properties.City +
+            "<br>" +
+            "<b>Phone: </b>" +
+            layer.feature.properties.Phone +
+            "<br>" +
+            "<b>Description: </b>" +
+            layer.feature.properties.Description
+        );
+      });
+    </script>
+  </body>
+</html>

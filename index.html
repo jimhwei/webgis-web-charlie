@@ -89,6 +89,9 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#about">About</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#contact">Contact</a>
+                    </li>
                 </ul>
                 <span class="nav-item social-icons">
                     <span class="fa-stack">
@@ -173,7 +176,7 @@
                 <div class="image-container basic-5">
                     <img id="north-county" class="img-fluid" src="images/northumberland-social.jpg" alt="Ranney Gorge Suspension Bridge">
                     <!-- <img class="img-fluid" src="images/Northumberland3.PNG" alt="Northumberland County Study Area"> -->
-                    <figcaption class="figure-caption">Northumberland County: Strenght Honour And Beauty</figcaption>
+                    <figcaption class="figure-caption">Northumberland County: Strength Honour and Beauty</figcaption>
                 </div>  
             </div>
               <!-- end of text-container -->
@@ -198,11 +201,11 @@
                         <p>Over the span of couple weeks, our team tried different ways to implement the web solution. We came across some problems along the way and tried to find workarounds for our final product. This section will detail what we have tried and what we did to overcome the issue.</p>
 
                         <h4>Phase One: Mapbox & GeoJSON</h4>
-                            <p>From our partner Sustainable Cobourg’s ArcGIS Online Web Map, we were able to find a feature service layer at their ArcGIS REST Services Directory. <a href="https://services3.arcgis.com/KJrsq5lsoZHRcF4w/ArcGIS/rest/services/Food_Banks/FeatureServer/0" target="blank"><b></b> ArcGIS REST Services Directory</a>. We looked at using the query function within the query to get a web response that matches what Mapbox can intake. We made sure to use an SQL query “Name IS NOT NULL” to make sure we selected all the food banks. The advantage of this method is being able to get point data as well as the description directly from the ArcGIS Online source, instead of having to make manual changes every time Sustainable Cobourg updates their feature layer.</p>
+                            <p>From our friend Sustainable Cobourg’s ArcGIS Online Web Map, we were able to find a feature service layer at their <a href="https://services3.arcgis.com/KJrsq5lsoZHRcF4w/ArcGIS/rest/services/Food_Banks/FeatureServer/0" target="blank"><b></b> ArcGIS REST Services Directory</a>. We looked at using the query function within the query to get a web response that matches what Mapbox can intake. We made sure to use an SQL query <b><i>“Name IS NOT NULL” </i></b> to make sure we selected all the food banks. The advantage of this method is being able to get point data as well as the description directly from the ArcGIS Online source, instead of having to make manual changes every time Sustainable Cobourg updates their feature layer.</p>
 
-                            <p><b>Problem: </b>The team attempted to use the geojson queried directly from the feature service via the REST endpoint, but it was unsuccessful due to the fact it is not native to Mapbox and required heavy request modification.</p>
+                            <p><b>Problem: </b>The team attempted to use the GeoJSON queried directly from the feature service via the REST endpoint, but it was unsuccessful due to the fact it is not native to Mapbox and required heavy request modification.</p>
 
-                            <p>The issue was that the web request to the feature service layer was not configured properly and they could not be projected on the mapbox.</p>
+                            <p>The issue was that the web request to the feature service layer was not configured properly and they could not be projected on the Mapbox.</p>
 
                             <div class="image-container">
                                 <p></p> <!-- Need a line break here-->
@@ -212,7 +215,7 @@
                                 <p></p> <!-- Need a line break here-->
                             </div>
 
-                            <p>From here we query for the GeoJSON to place into Mapbox map. Markers showed up and our next issue were the popup windows. Through Mapbox tutorials and research, we figured out the solution to display the specific attributes that we wanted from the properties section. We needed to configure the code from the tutorial slightly to fit our requirements and needs.</p>
+                            <p>From here we extracted the GeoJSON using a query to place into Mapbox map. Markers showed up and our next issue were the popup windows. Through Mapbox tutorials and research, we figured out the solution to display the specific attributes that we wanted from the properties section. We needed to configure the code from the tutorial slightly to fit our requirements and needs.</p>
                             <p><b>Problem: </b>What we had trouble with was changing the marker symbols so that they cluster properly.</p>
                             <hr>
 
@@ -242,7 +245,7 @@
                             </div>
                         
                         <h4>Next Steps</h4>
-                            <p>Leaflet is an open-source JavaScript library and can be enhanced with different web applications such as Mapbox, OpenStreetMap, and Esri suite. For our team’s next steps, we aim to tie the Mapbox styling with Leaflet due to the ease of Leaflet feature layer input by using the REST endpoint URL as data input. This will allow for ease in updatability to the web map. When we update the feature layer in ArcGIS Online, the REST endpoint URL will sync the update to be displayed on the web map. </p>
+                            <p>Leaflet is an open-source JavaScript library and can be enhanced with different web applications such as Mapbox, OpenStreetMap, and Esri suite. It is a native environment that adapts with Esri products seamlessly. Our next steps include adding more customized map elements so that it has even better aesthetic appeal for a wide audience. </p>
 
                     </div> <!-- end of text-container -->
                 <!-- </div> end of col -->
@@ -270,7 +273,7 @@
                         <h3>The Interactive Web Map</h3>
                         <p>At the height of Covid-19 pandemic around March 2020, the Northumberland County witnessed 
                             the consequences of food deserts in their municipality on their citizens. The lack of access to fresh food 
-                            for food insecure persons led to Sustainable Cobourg’ call to action – to create an interactive web friendly map for users and organizations to set up optimal locations for pop-up food distribution sites. </p>
+                            for food insecure persons led to Sustainable Cobourg’s call to action – to create an interactive web friendly map for users and organizations to set up optimal locations for pop-up food distribution sites. </p>
                         <ul class="list-unstyled li-space-lg">
                             <li class="media">
                                 <div class="media-body"><strong>Food Banks</strong> Regularly updated data for Food Bank location and information to increase food availability. </div>
@@ -359,16 +362,16 @@
                             <p></p> <!-- Need a line break here-->
                             <hr>
                             <img class="img-fluid" src="images/mapboxstudio.jpg" width="800" alt="Mapbox Studio">
-                            <figcaption class="figure-caption">Decsions had to be made to make sure no icons or cartographic features were sticking out of the ordinary. </figcaption>
+                            <figcaption class="figure-caption">Decisions had to be made to make sure no icons or cartographic features were sticking out of the ordinary. </figcaption>
                             <p></p> <!-- Need a line break here-->
                             <hr>
                              <img class="img-fluid" src="images/Style.jpg" width="800" alt="Mapbox Style">
-                            <figcaption class="figure-caption">Lastly, published the style in Mapbox studio and then we were ready to use the basemap!</figcaption>
+                            <figcaption class="figure-caption">Lastly, we published the style in Mapbox studio and then we were ready to use the basemap!</figcaption>
                         </div>
                         <hr>
 
                         <h4>Step 1</h4>
-                        <p>From Sustainable Cobourg's ArcGIS Online account, we found the Project Cobourg Web Map. From there we went into the layers to retrieve the Food_Banks (0) Feature Server REST endpoint. This was followed by creating a Query for GeoJSON of the ArcGIS Online Food_Banks (0) FeatureServer. Once we received the GeoJSON return, we saved the output as a geojson file and placed into our repository on GitHub via VS Code.</p>
+                        <p>From Sustainable Cobourg's ArcGIS Online account, we found the Project Cobourg Web Map. From there we went into the layers to retrieve the Food_Banks (0) Feature Server REST endpoint. This was followed by creating a Query for GeoJSON of the ArcGIS Online Food_Banks (0) FeatureServer. Once we received the GeoJSON return, we saved the output as a GeoJSON file and placed into our repository on GitHub via VS Code.</p>
                         <div class="image-container">
                             <img class="img-fluid" src="images/RESTendpoint3.png" alt="RESTendpoint Query">
                             <p></p> <!-- Need a line break here-->
@@ -392,7 +395,7 @@
                             </li>
                             <li class="media">
                                 <i class="fas fa-square"></i>
-                                <div class="media-body"><strong>Create a map:</strong> Add the map to your site with accessToken, and place map in script section</div>
+                                <div class="media-body"><strong>Create a map:</strong> Add the map to your site with accessToken, and place map in script section.</div>
                             </li>
                         </ul> 
         
@@ -419,7 +422,7 @@
                         </div>
                         <hr>
                         <h4>Step 6</h4>
-                        <p>Find workflow to automate updates. We found that integrating Mapbox Styling with Leaflet url input would be our best option moving forward.</p> 
+                        <p>Find workflow to automate updates. We found that integrating Mapbox Styling with Leaflet URL input would be our best option moving forward.</p> 
                         <div class="image-container">
                             <img class="img-fluid" src="images/Step6.PNG" width="700" alt="Leaflet map code">
                         </div>
@@ -435,13 +438,13 @@
     <!-- end of details 2 -->
 
     <!-- About -->
-    <div id="about" class="basic-5">
+    <div id="about" class="basic-3">
         <div class="container">
             <div class="row">
                 <!-- <div class="col-lg-4"> -->
                     <div class="text-container">
                         <h2>Meet The Team</h2>
-                        <p>Team web charlie has a combined GIS experience of 12 years. Trained in the Fleming College GIS Specialist program, each member provides valuable implementation to the web solution. To find out more, check out their profiles below!</p>
+                        <p>Team Web Charlie has 12 years of combined GIS experience. Trained in the Fleming College GIS Specialist program, each member provides valuable experiences and input to the web solution. To find out more, check out their profiles below!</p>
                     </div> <!-- end of text-container -->
                 <!-- </div> end of col -->
             </div> <!-- end of row -->
@@ -460,8 +463,8 @@
                         <p></p>
                         <h4>Christopher Webb</h4>
                         <p>GIS Applications Specialist</p>
-                        <p>Graduated From Trent University in 2019 with Honours in Biology and Environmental Resource Science. Turned to GIS because, what else is there to do in an Ontario Lockdown?</p>
-                        <p>Enjoys Pina Colads and getting caught in the rain.</p>
+                        <p>Graduated from Trent University in 2019 with Honours in Biology and Environmental Resource Science. Turned to GIS because, what else is there to do in an Ontario Lockdown?</p>
+                        <p>Enjoys Pina Coladas and getting caught in the rain.</p>
                     </div> <!-- end of text-box -->
                 </div> <!-- end of col -->
                 <div class="col-lg-4">
@@ -472,7 +475,7 @@
                         <h4>Kezia Yu</h4>
                         <p>GIS Cartographic Specialist</p>
                         <p>Graduated from the University of Toronto in 2018 with an Honours Bachelor of Arts. Majored in Human Geography and minored in GIS and Environmental Geography.</p>
-                        <p>Enjoys long walks on the beach</p>
+                        <p>Enjoys long walks on the beach.</p>
                     </div> <!-- end of text-box -->
                 </div> <!-- end of col -->
                 <div class="col-lg-4">
@@ -482,7 +485,7 @@
                         <p></p>
                         <h4>Jim Wei</h4>
                         <p>GIS Applications Specialist</p>
-                        <p>Avid GIS mapping and scripting nerd that finds interest in programming and automating tasks. Jim has a background in environmental consulting and a Geoscience degree from University of Toronto.</p>
+                        <p>Avid GIS mapper and scripter that finds interest in programming and automating tasks. Jim has a background in environmental consulting and a Geoscience degree from University of Toronto.</p>
 
                         <p>When he is not working, he is curating and refining his dad humor. </p>
                     </div> <!-- end of text-box -->
@@ -549,6 +552,79 @@
         </div> <!-- end of container -->
     </div> <!-- end of basic-6 -->
     <!-- end of invitation -->
+
+    <!-- Contact -->
+    <div id="contact" class="form-1">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="h2-heading">Contact details</h2>
+            <p class="p-heading">
+              Don't hesitate to send your questions to us through the contact form.
+            </p>
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- Contact Form -->
+            <div class="form-container">
+              <img
+                class="decoration"
+                src="images/contact-envelope.svg"
+                alt="alternative"
+              />
+              <form action="https://formspree.io/f/xwkapzwa" method="POST">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control-input"
+                    id="cname"
+                    name="Name"
+                    required
+                  />
+                  <label class="label-control" for="cname">Name</label>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control-input"
+                    id="cemail"
+                    name="Email"
+                    required
+                  />
+                  <label class="label-control" for="cemail">Email</label>
+                </div>
+                <div class="form-group">
+                  <textarea
+                    class="form-control-textarea"
+                    id="cmessage"
+                    name="Message"
+                    required
+                  ></textarea>
+                  <label class="label-control" for="cmessage"
+                    >Your message</label
+                  >
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="form-control-submit-button">
+                    Submit Message
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- end of form-container -->
+            <!-- end of contact form -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of form-1 -->
+    <!-- end of contact -->
 
     <!-- Footer -->
     <div class="footer bg-gray">

@@ -22,15 +22,6 @@
     
     <!-- Mapbox Script and style-->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
-    <style>
-        body { margin: 20; padding: 0; }
-        #map { position: absolute; top: 0; bottom: 0; right: 30px; width: 100%;}
-        #north-county{ max-width: 75%; margin-bottom: 25px;}
-        #extra-space{ margin-bottom: 25px;}
-        #map-leaf {height: 100%; width: 100%; margin: 0; padding: 0;}
-        /* #box-pic { position: absolute; top: 0; bottom: 0; right: 30px; width: 100%;} */
-    </style>
-
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -276,7 +267,7 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
-                        <h3>The Interactive Web-Map</h3>
+                        <h3>The Interactive Web Map</h3>
                         <p>At the height of Covid-19 pandemic around March 2020, the Northumberland County witnessed 
                             the consequences of food deserts in their municipality on their citizens. The lack of access to fresh food 
                             for food insecure persons led to Sustainable Cobourg’ call to action – to create an interactive web friendly map for users and organizations to set up optimal locations for pop-up food distribution sites. </p>
@@ -287,9 +278,19 @@
                             <li class="media">
                                 <div class="media-body"><strong>Responsive Design</strong> This website is responsive! You can resize the screen and view this solution on your mobile phone! To view it in full screen, click the blue button below.</div>
                             </li>
+                                                        <hr>
+                            <li class="media">
+                                <div class="media-body"><strong>Web Tier</strong> Mapbox </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-body"><strong>Middle Tier</strong> Mapbox Studio </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-body"><strong>Data Tier</strong> GeoJSON embedded on website </div>
+                            </li>
                         </ul> 
                         <!-- Shutting down the button until it's been fixed -->
-                        <a class="btn-solid-reg" target="blank" href="solution.html">Launch Full Screen</a>
+                        <a class="btn-solid-reg" target="blank" href="solution.html">Launch Mapbox in Full Screen</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -315,18 +316,25 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
-                        <h3>The Altnernative Web-Map</h3>
-                        <p>The primary Mapbox solution requires manual updating. The team thought it would be interesting to provide an alternative solution using Esri leaflet. If the feature service layer by Sustainable Cobourg is updated in this alternative solution, then the icons would automatically update. One downfall of this solution would be losing access to the feature service; the organization REST Services Directory might no longer function, or the layers have been modified. </p>
+                        <h3>The Altnernative Web Map</h3>
+                        <p>The primary Mapbox solution requires manual updating. The team thought it would be interesting to provide an alternative solution using Esri leaflet. This solution leverages the feature service directly from Sustainable Cobourg’s ArcGIS Online account. If the feature service layer is updated here, then the icons would automatically update. </p>
                         <ul class="list-unstyled li-space-lg">
                             <li class="media">
                                 <div class="media-body"><strong>Farmer's Market</strong> In this solution, you can view the farmer’s market layer as well as the foodbanks! </div>
                             </li>
+                            <hr>
                             <li class="media">
-                                <div class="media-body"><strong>Responsive Design</strong> This website is responsive! You can resize the screen and view this solution on your mobile phone! To view it in full screen, click the blue button below.</div>
+                                <div class="media-body"><strong>Web Tier</strong> Esri Leaflet </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-body"><strong>Middle Tier</strong> ArcGIS Rest Services Directory </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-body"><strong>Data Tier</strong> Sustainable Cobourg ArcGIS Server </div>
                             </li>
                         </ul> 
                         <!-- Shutting down the button until it's been fixed -->
-                        <a class="btn-solid-reg" target="blank" href="alt-solution-leaflet.html">Launch Full Screen</a>
+                        <a class="btn-solid-reg" target="blank" href="alt-solution-leaflet.html">Launch Leaflet in Full Screen</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -594,15 +602,7 @@
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
     </div> <!-- end of copyright --> 
-    <!-- end of copyright -->
-    
-    <style>
-        .mapboxgl-Popup {
-            max-width: 400px; 
-            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        }
-    </style>
-        
+    <!-- end of copyright -->     
     	
     <!-- Scripts -->
     <script>
@@ -1038,6 +1038,7 @@
         // });
     </script>
 
+    <!-- Leaflet -->
     <!-- Construct Map Object -->
     <script>
       var map = L.map("map-leaf", {

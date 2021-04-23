@@ -33,6 +33,16 @@ Colors:
 - Body text - dark gray #6b747b
 ******************************************/
 
+/**************************/
+/*   Web Charlie Styles   */
+/**************************/
+
+body { margin: 20; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; right: 30px; width: 100%;}
+#north-county{ max-width: 75%; margin-bottom: 25px;}
+#extra-space{ margin-bottom: 25px;}
+#map-leaf {height: 100%; width: 100%; margin: 0; padding: 0;}
+.mapboxgl-Popup {max-width: 400px; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;}
 
 /**************************/
 /*     General Styles     */

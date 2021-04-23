@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Leaflet Map with a Basemap</title>
+    <title>Leaflet Solution</title>
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
@@ -39,21 +39,31 @@
         padding: 0;
       }
     </style>
+
+    <!-- Already in index -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+  
+    <!-- Favicon  -->
+    <link rel="icon" href="images/favicon.png">
+  
   </head>
   <body>
-    <p>Back to Main Page</p>
+    <p>
+      <a href="index.html" style="text-decoration: none;"><b>Back to Main Page</b></a>
+    </p>
     <div id="map-leaf"></div>
 
     <!-- Construct Map Object -->
     <script>
       var map = L.map("map-leaf", {
-        center: [44.1, -78.0],
+        center: [44.05, -78.0],
         zoom: 10,
       });
 
-      // Load Esri's World Streetmap tiles (adding a basemap from ArcGIS Online)
+      // Using mapbox styling
       // Add feature layer from ArcGIS REST Endpoint Food_Banks URL!
-      // L.esri.basemapLayer('NationalGeographic').addTo(map);
       L.tileLayer(
         "https://api.mapbox.com/styles/v1/howe2020/cknu779uo0a9z17nuj6835vv0/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaG93ZTIwMjAiLCJhIjoiY2ttanBjZ2RlMHQ1eTJwdDQ4OWM4eGR1NSJ9.b9kOhElyIEpC-NrGji73Fw",
         {
